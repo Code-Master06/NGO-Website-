@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organ Donation NGO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(to bottom, #FFA500, #003366);
+            color: #fff;
+        }
+
+        header {
+            background: #003366;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #FFA500;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 50px 20px;
+            min-height: 60vh; /* Ensures sections are well spaced */
+        }
+
+        #home, #contact {
+            min-height: 50vh; /* Reduced height to remove extra blank space */
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #FFA500;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .image-gallery img {
+            width: 150px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background: #003366;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .content-box {
+            max-width: 700px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('about')">About</a></li>
+                <li><a onclick="showSection('impact')">Impact</a></li>
+                <li><a onclick="showSection('donate')">Donate</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="content-box">
+            "YOUR <span style="color: #000000; font-weight: bold;">DECISION</span>, THEIR SECOND <span style="color: #000000; font-weight: bold;">CHANCE</span>"
+            <h3 style="color: #300546; font-family: 'Verdana', sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
+                HELP to create a better life
+            </h3>
+            <p>Organ donation is a noble act that gives someone a second chance at life. Every day, thousands of people wait for an organ transplant, hoping for a miracle. By donating an organ, you can help save lives and make a difference.</p>
+            <p>One donor can save up to 8 lives by donating their heart, lungs, liver, kidneys, pancreas, and intestines. Tissue donations such as corneas, skin, and bones can enhance the lives of many more.</p>
+            <button class="btn" onclick="showSection('donate')">Donate Now</button>
+        </div>
+    </section>
+
+    <section id="about" class="hide">
+        <div class="content-box">
+            <h2>About Us</h2>
+            <p>We aim to help people regain a better quality of life through organ donation.</p>
+            <div class="image-gallery">
+                <img src="img1.jpg" alt="Kidney Donation">
+                <p style="color: rgb(4, 4, 62);">Kidney Donation</p>
+                <img src="img2.jpg" alt="Heart Donation">
+                <p style="color: rgb(162, 19, 19);">Heart Donation</p>
+                <img src="img3.jpg" alt="Eye Donation">
+                <p style="color: rgb(4 4, 62);">Eye Donation</p>
+                <img src="img4.jpg" alt="Lungs Donation">
+                <p style="color: rgb(162, 19, 19);">Lungs Donation</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact" class="hide">
+        <div class="content-box">
+            <h2>Our Impact</h2>
+            <p>We have helped over 10,000 people receive healthcare and life-saving transplants.</p>
+            <img src="impact.jpg" alt="happy patients" width="300">
+        </div>
+    </section>
+
+    <section id="donate" class="hide">
+        <div class="content-box">
+            <h2>Donate Now</h2>
+            <p>Fill out the form to become an organ donor.</p>
+            <form action="submit_form.php" method="post" enctype="multipart/form-data">
+                <input type="text" name="fullname" placeholder="Full Name" required><br><br>
+                <input type="number" name="age" placeholder="Age" required><br><br>
+                <input type="text" name="organ" placeholder="Organ to Donate" required><br><br>
+                <input type="email" name="email" placeholder="Email Address" required><br><br>
+                <input type="text" name="address" placeholder="Home Address" required><br><br>
+                <label>Upload Payment Screenshot:</label>
+                <input type="file" name="payment_screenshot" accept="image/*" required><br><br>
+                <button type="submit" class="btn">Submit Donation</button>
+            </form>
+            <!-- QR Code Popup -->
+    <div class="qr-popup" id="qrPopup">
+        <h3>Scan to Donate</h3>
+     <img src="scanner.jpg" alt="sacnner">
+        <button onclick="closeQR()">Close</button>
+        </div>
+    </section>
+
+    <section id="contact" class="hide">
+        <div class="content-box">
+            <h2>Contact Us</h2>
+            <h1>Email: odn@gmail.com</h1>
+            <h2>Phone: 123-456-7890</h2>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ODN. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll("section").forEach(section => {
+                section.classList.add("hide");
+            });
+            document.getElementById(sectionId).classList.remove("hide");
+        }
+    </script>
+
+</body>
+</html>
